@@ -24,7 +24,7 @@ public class ApoliceController {
     }
 
     @GetMapping("/{numero}")
-    public ApoliceBO getByNumber(@PathVariable String numero){
+    public ApoliceBO getByNumber(@PathVariable Integer numero){
         return apoliceService.getByNumber(numero);
     }
 

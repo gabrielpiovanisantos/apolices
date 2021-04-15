@@ -13,14 +13,7 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-    public boolean validateCPF(String cpf){
-        //TODO: validate logic
-        return true;
-    }
-
     public void save(Cliente cliente) {
-        if(validateCPF(cliente.getCpf()))
-        //TODO: cpf invalid exception
         clienteRepository.save(cliente);
     }
 

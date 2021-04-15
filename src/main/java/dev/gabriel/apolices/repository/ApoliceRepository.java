@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApoliceRepository extends MongoRepository<Apolice, String> {
+    Apolice getByNumero(Integer numero);
 }

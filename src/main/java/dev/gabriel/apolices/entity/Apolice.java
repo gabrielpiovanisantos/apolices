@@ -1,14 +1,12 @@
 package dev.gabriel.apolices.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDate;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Builder
 @Data
@@ -17,8 +15,8 @@ public class Apolice {
 
     @Id
     private String id;
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer numero;
+    @Setter
+    private Integer numero = UUID.randomUUID().hashCode();
     @NonNull
     private LocalDate inicioVigencia;
     @NonNull
