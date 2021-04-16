@@ -9,4 +9,3 @@
 
 ### TODO
 - [] Unit tests
-- [] Document endpoints
