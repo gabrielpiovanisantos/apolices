@@ -19,12 +19,21 @@ public class ApoliceService {
         this.clienteRepository = clienteRepository;
     }
 
-    public void save(Apolice apolice) {
+    public Apolice save(Apolice apolice) {
         if (clienteRepository.getById(apolice.getClienteId()) == null) {
             throw new ClientNotFoundException(apolice.getClienteId());
         }
-        apolice.setNumero(UUID.randomUUID().hashCode());
-        apoliceRepository.save(apolice);
+
+        do {
+            setApoliceNumero(apolice);
+        } while (apoliceRepository.getByNumero(apolice.getNumero()) != null);
+
+        return apoliceRepository.save(apolice);
+    }
+
+    private void setApoliceNumero(Apolice apolice) {
+        int numero = Math.abs(UUID.randomUUID().hashCode());
+        apolice.setNumero(numero);
     }
 
     public ApoliceBO getByNumber(Integer numero) {

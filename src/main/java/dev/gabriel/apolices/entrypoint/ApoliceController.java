@@ -18,9 +18,8 @@ public class ApoliceController {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> save(@RequestBody Apolice apolice) {
-        apoliceService.save(apolice);
-        return ResponseEntity.ok(HttpStatus.CREATED);
+    public ResponseEntity<Apolice> save(@RequestBody Apolice apolice) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(apoliceService.save(apolice));
     }
 
     @GetMapping("/{numero}")

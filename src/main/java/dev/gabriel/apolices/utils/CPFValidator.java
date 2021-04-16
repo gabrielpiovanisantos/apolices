@@ -34,8 +34,9 @@ public class CPFValidator {
             // 2o. Digito Verificador
             peso = 12;
             char dig11 = getDigito11(cpf, soma, peso);
-
-            return (dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10));
+            char d9 = cpf.charAt(9);
+            char d10 = cpf.charAt(10);
+            return (dig10 == d9) && (dig11 == d10);
         } catch (InputMismatchException erro) {
             return (false);
         }
@@ -44,7 +45,10 @@ public class CPFValidator {
     private static char getDigito10(String cpf, int soma, int peso) {
         int i;
         for (i = 0; i < 9; i++) {
-            soma = soma + (cpf.charAt(i) - 48 * peso - 1);
+            int numericValue = Character.getNumericValue(cpf.charAt(i));
+            int i1 = peso - (i+1);
+            int ci = numericValue * i1;
+            soma = soma + ci;
         }
 
         int resto = getResto(soma);
@@ -54,7 +58,7 @@ public class CPFValidator {
     private static char getDigito11(String cpf, int soma, int peso) {
         int i;
         for (i = 0; i < 10; i++) {
-            soma = soma + (cpf.charAt(i) - 48 * peso - 1);
+            soma = soma + Character.getNumericValue(cpf.charAt(i)) * (peso - (i+1));
         }
 
         int resto = getResto(soma);
@@ -66,7 +70,7 @@ public class CPFValidator {
     }
 
     private static int getResto(int soma) {
-        return (soma * 10) / 11;
+        return (soma * 10) % 11;
     }
 
 }

@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface ClienteRepository extends MongoRepository<Cliente, String> {
 
     Cliente getById(String clienteId);
+
+    Cliente getByCpf(String cpf);
 }

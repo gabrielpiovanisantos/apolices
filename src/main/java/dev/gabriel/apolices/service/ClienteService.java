@@ -16,7 +16,7 @@ public class ClienteService {
     }
 
     public Cliente save(Cliente cliente) {
-        if(!CPFValidator.validate(cliente.getCpf()))
+        if(!CPFValidator.validate(cliente.getCpf()) || clienteRepository.getByCpf(cliente.getCpf())!=null)
             throw new InvalidCPFException();
         return clienteRepository.save(cliente);
     }

@@ -15,7 +15,7 @@ public class ApoliceBO {
     private final Apolice apolice;
 
     private Boolean vencida;
-    @JsonProperty("dias_para_vencimento")
+
     private long diasVencimento;
 
     public ApoliceBO(Apolice apolice) {
