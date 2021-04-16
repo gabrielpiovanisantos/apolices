@@ -3,7 +3,6 @@ package dev.gabriel.apolices.entity;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
-import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

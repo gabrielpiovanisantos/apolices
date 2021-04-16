@@ -45,10 +45,7 @@ public class CPFValidator {
     private static char getDigito10(String cpf, int soma, int peso) {
         int i;
         for (i = 0; i < 9; i++) {
-            int numericValue = Character.getNumericValue(cpf.charAt(i));
-            int i1 = peso - (i+1);
-            int ci = numericValue * i1;
-            soma = soma + ci;
+            soma = soma + Character.getNumericValue(cpf.charAt(i)) * (peso - (i + 1));
         }
 
         int resto = getResto(soma);
@@ -58,7 +55,7 @@ public class CPFValidator {
     private static char getDigito11(String cpf, int soma, int peso) {
         int i;
         for (i = 0; i < 10; i++) {
-            soma = soma + Character.getNumericValue(cpf.charAt(i)) * (peso - (i+1));
+            soma = soma + Character.getNumericValue(cpf.charAt(i)) * (peso - (i + 1));
         }
 
         int resto = getResto(soma);

@@ -1,10 +1,8 @@
 package dev.gabriel.apolices.service;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.gabriel.apolices.entity.Apolice;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NonNull;
 
 import java.time.LocalDate;
 
@@ -26,14 +24,6 @@ public class ApoliceBO {
     private Boolean vencida;
 
     private long diasVencimento;
-
-    public void setVencida() {
-        this.vencida = !this.getFimVigencia().isAfter(NOW);
-    }
-
-    public void setDiasVencimento() {
-        this.diasVencimento = DAYS.between(NOW, this.getFimVigencia());
-    }
 
     public static ApoliceBO fromApolice(Apolice apolice) {
         return ApoliceBO.builder().

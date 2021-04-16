@@ -2,7 +2,6 @@ package dev.gabriel.apolices.entrypoint;
 
 import dev.gabriel.apolices.entity.Cliente;
 import dev.gabriel.apolices.service.ClienteService;
-import dev.gabriel.apolices.utils.InvalidCPFException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

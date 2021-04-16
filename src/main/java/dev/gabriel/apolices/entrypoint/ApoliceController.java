@@ -23,7 +23,7 @@ public class ApoliceController {
     }
 
     @GetMapping("/{numero}")
-    public ResponseEntity<ApoliceBO> getByNumber(@PathVariable Integer numero){
+    public ResponseEntity<ApoliceBO> getByNumber(@PathVariable Integer numero) {
         ApoliceBO apoliceBO = apoliceService.getByNumber(numero);
         return ResponseEntity.status(HttpStatus.OK).body(apoliceBO);
     }

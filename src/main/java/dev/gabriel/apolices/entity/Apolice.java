@@ -1,12 +1,12 @@
 package dev.gabriel.apolices.entity;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Builder
 @Data
@@ -26,6 +26,5 @@ public class Apolice {
     private Float valor;
     @NonNull
     private String clienteId;
-
 
 }
