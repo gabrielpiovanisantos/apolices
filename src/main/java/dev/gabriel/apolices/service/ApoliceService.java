@@ -6,6 +6,8 @@ import dev.gabriel.apolices.repository.ClienteRepository;
 import dev.gabriel.apolices.utils.ClientNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ApoliceService {
 
@@ -18,9 +20,10 @@ public class ApoliceService {
     }
 
     public void save(Apolice apolice) {
-        if(clienteRepository.getById(apolice.getClienteId()) == null){
+        if (clienteRepository.getById(apolice.getClienteId()) == null) {
             throw new ClientNotFoundException(apolice.getClienteId());
         }
+        apolice.setNumero(UUID.randomUUID().hashCode());
         apoliceRepository.save(apolice);
     }
 

@@ -15,8 +15,7 @@ public class Apolice {
 
     @Id
     private String id;
-    @Setter
-    private Integer numero = UUID.randomUUID().hashCode();
+    private Integer numero;
     @NonNull
     private LocalDate inicioVigencia;
     @NonNull

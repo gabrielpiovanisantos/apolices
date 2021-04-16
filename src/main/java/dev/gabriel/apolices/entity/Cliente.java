@@ -17,7 +17,6 @@ public class Cliente {
     @NonNull
     private String nome;
     @NonNull
-    @CPF
     private String cpf;
     @NonNull
     private String cidade;

@@ -21,13 +21,9 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> save(@RequestBody Cliente cliente) {
-        try {
+    public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
             clienteService.save(cliente);
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().build();
-        }
-        return ResponseEntity.ok(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
     }
 
 }
