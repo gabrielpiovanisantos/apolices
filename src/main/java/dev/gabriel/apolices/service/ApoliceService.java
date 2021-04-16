@@ -37,6 +37,7 @@ public class ApoliceService {
     }
 
     public ApoliceBO getByNumber(Integer numero) {
-        return new ApoliceBO(apoliceRepository.getByNumero(numero));
+        ApoliceBO apoliceBO = ApoliceBO.fromApolice(apoliceRepository.getByNumero(numero));
+        return apoliceBO;
     }
 }
